@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://kit.fontawesome.com/1d27b3341b.js" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <style>
+      .todo{
+        height: 300px;
+        overflow: scroll;
+      }
+      #save{
+        display: none;
+      }
+      .active #save{
+        display: block;
+      }
+      .active #edit{
+        display: none;
+      }
+      ::-webkit-scrollbar{
+        background: black;
+        color: aqua;
+        display: none;
+      }
+      ::-webkit-scrollbar-thumb{
+      background: white;
+      }
+      ::-webkit-scrollbar-track{
+        background-color: gold;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="todo">
+      <h1>My Work List</h1>
+
+      <form class="todoForm">
+        <input class="todo-input" type="text" id="task" />
+        <button type="submit">done</button>
+      </form>
+
+      <div class="list"></div>
+    </div>
+
+    <script>
+      let js = JSON.parse(localStorage.getItem("todo")) ?? [];
+      let form = document.querySelector(".todoForm");
+
+      form.addEventListener("submit", function (e) {
+        e.preventDefault();
+        let task = document.querySelector(".todoForm");
+        js.push(form.task.value);
+        localStorage.setItem("todo", JSON.stringify(js));
+
+        showList();
+      });
+
+     function showList(){
+        let storage = JSON.parse(localStorage.getItem("todo"))
+
+        let final_data = '';
+
+      storage.forEach((e ,ind) => {
+         if(e !== ''){
+          final_data  +=
+        `<input id='edit-input${ind}' type-'text' value=${e} disabled>
+        <button onClick=deleteElement(${ind}) >del</button>
+        <div class='edit-icon${ind}' onclick=editElement(${ind})>
+          <i id='edit' class="fa-regular fa-pen-to-square"></i>
+      </div>`;
+        form.task.value = '';
+
+        
+ 
+         }
+      })
+      document.querySelector('.list').innerHTML = final_data;
+      
+     }
+     showList()
+
+     function deleteElement(e){
+        let storage = JSON.parse(localStorage.getItem("todo"))
+
+       let deleted = storage.filter((data, index)=>{
+        return index !== e;
+        })
+
+        localStorage.setItem('todo', JSON.stringify(deleted));
+        showList()
+     }
+
+      function editElement(ind){
+
+      let storage = JSON.parse(localStorage.getItem("todo"))
+
+      let deleted = storage.filter((data, index)=>{
+        return index == ind;
+        })
+
+       let inputVal = storage[ind]
+      
+
+        deleteElement(ind)
+        form.task.value = inputVal
+
+     }
+
+
+     
+    </script>
+  </body>
+</html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="./imgs/home.png" />
+    <title>Home</title>
+
+    <!-- Icon Set Karna Baki hai last Me hoga -->
+
+    <!-- My CSS Stylesheet -->
+    <link rel="Stylesheet" href="style.css" />
+
+    <!-- Font Awasome Script CDN Link -->
+    <script
+      src="https://kit.fontawesome.com/1d27b3341b.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section class="upper-section">
+      <div class="quote-box">
+        <h1 class="heading">Today's motivation</h1>
+        <p class="paragrap">
+          <i class="upper-qoute fa-solid fa-quote-left"></i>
+          <span class="random"></span>
+          <i class="lower-qoute fa-solid fa-quote-right"></i>
+        </p>
+        <p class="author"></p>
+      </div>
+
+      <div class="clock">
+        <div class="time">
+          <h1>
+            <span class="clock-hours"></span>:<span
+              class="clock-minutes"
+            ></span>
+          </h1>
+        </div>
+        <div class="full-date"></div>
+      </div>
+    </section>
+
+    <!-- Invisible input  -->
+
+    <div class="search-section">
+      <div class="input-section">
+        <span class="button-border">
+          <img
+            src="https://assets.codepen.io/1468070/Google+G+Icon.png"
+            alt=""
+            height="29px"
+          />
+          <input id="search" type="text" placeholder="Search Here" autocomplete="off" />
+          <button class="search-button" onclick="searchURL()">
+            <i
+              class="fa-solid fa-circle-arrow-right fa-2xl"
+              style="color: #dee2e9"
+            ></i>
+          </button>
+        </span>
+      </div>
+    </div>
+
+    <!-- Lover Section -->
+    <section class="lowver-section">
+      <div class="remember-box">
+        <div class="quotes-Head">
+            <h1 class="head">Always Remenber✨</h1>
+          </div>
+          <div class="quotes-body">
+            <h5 class="quotes">Change is painful, but nothing is as painful as staying stack somewhere you don't belong</h5>
+            <p class="writer">-Mandy Hale</p>
+            <div class="border-buttom"></div>
+
+            <h5 class="quotes">Success isn't final, failure isn't fatal. it is the courage to continue that counts</h5>
+            <p class="writer">-Winston Churchill</p>
+            <div class="border-buttom"></div>
+            
+            <h5 class="quotes">I've not failed. i've just found 10,000 ways that won't work</h5>
+            <p class="writer">-Thomas A. Edison</p>
+            <div class="border-buttom"></div>
+          </div>
+        
+      </div>
+
+      <div class="todo">
+        <h1 class="border-buttom">My Work List</h1>
+  
+        <form class="todoForm">
+          <div class="form-dev">
+            <input  type="text" id="task" autocomplete="off" />
+          <button type="submit">
+            <i class="icon fa-solid fa-square-plus fa-2xl"></i>
+          </button>
+          </div>
+        </form>
+  
+        <div class="list"></div>
+      </div>
+    </section>
+
+    <script src="script.js"></script>
+  </body>
+</html>
